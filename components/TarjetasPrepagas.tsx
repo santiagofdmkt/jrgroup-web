@@ -18,14 +18,21 @@ export default function TarjetasPrepagas() {
               href={`/${p.slug}`}
               className="group relative flex h-40 items-center justify-center overflow-hidden rounded-lg shadow-md ring-1 ring-gray-200 transition hover:-translate-y-1 hover:shadow-xl"
             >
-              <Image src={p.logo} alt={p.nombre} fill className="object-cover" />
+              <Image
+                src={p.logo}
+                alt={p.nombre}
+                fill
+                className="object-cover transition duration-300 group-hover:scale-110"
+              />
               {!p.activa && (
                 <span className="absolute right-2 top-2 z-10 rounded bg-white/90 px-2 py-0.5 text-[10px] font-bold uppercase text-jr-azul">
                   Próximamente
                 </span>
               )}
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 via-black/10 to-transparent p-3 opacity-0 transition group-hover:opacity-100">
-                <span className="text-sm font-semibold text-white drop-shadow">Ver planes ›</span>
+              <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-center bg-gradient-to-t from-black/70 to-transparent py-2">
+                <span className="text-sm font-bold uppercase tracking-wide text-white drop-shadow">
+                  Ver planes ›
+                </span>
               </div>
             </Link>
           ))}
