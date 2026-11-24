@@ -1,26 +1,46 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Colores y letra de JR Group */
+@theme {
+  --color-jr-azul: #3a7bd5;
+  --color-jr-azul-oscuro: #2c62b0;
+  --color-jr-turquesa: #3bb5b0;
+  --color-jr-gris: #7a7a7a;
+  --color-jr-texto: #1d2433;
+  --color-jr-fondo: #f5f7fa;
 }
 
+/* La letra Roboto se carga en layout.tsx */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-roboto), Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-jr-texto);
+  font-family: var(--font-sans);
+}
+
+/* Rayita turquesa debajo de los titulos (alineada a la izquierda) */
+.titulo-jr::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin-top: 12px;
+  background: var(--color-jr-turquesa);
+}
+
+/* Rayita turquesa debajo de los titulos (centrada) */
+.titulo-jr-centro::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin: 12px auto 0;
+  background: var(--color-jr-turquesa);
 }
