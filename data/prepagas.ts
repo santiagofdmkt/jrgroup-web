@@ -33,14 +33,14 @@ export const prepagas: Prepaga[] = [
       "Cotizá Medifé con asesoramiento gratis. Compará planes y precios para vos y tu familia.",
   },
   {
-    slug: "omint",
-    nombre: "Omint",
+    slug: "avalian",
+    nombre: "Avalian",
     activa: false,
-    resumen: "Planes de salud con atención de primer nivel.",
-    logo: "/img/logo-omint.png",
-    tituloSeo: "Omint | Planes y precios | JR Group",
+    resumen: "Planes de salud con alcance nacional.",
+    logo: "/img/logo-avalian.png",
+    tituloSeo: "Avalian | Planes y precios | JR Group",
     descripcionSeo:
-      "Cotizá Omint con asesoramiento gratis. Compará planes y precios para vos y tu familia.",
+      "Cotizá Avalian con asesoramiento gratis. Compará planes y precios para vos y tu familia.",
   },
   {
     slug: "premedic",
@@ -83,14 +83,14 @@ export const prepagas: Prepaga[] = [
       "Cotizá Swiss Medical con asesoramiento gratis. Compará planes y precios para vos y tu familia.",
   },
   {
-    slug: "avalian",
-    nombre: "Avalian",
+    slug: "hominis",
+    nombre: "Hominis",
     activa: false,
-    resumen: "Planes de salud con alcance nacional.",
-    logo: "/img/logo-avalian.png",
-    tituloSeo: "Avalian | Planes y precios | JR Group",
+    resumen: "Planes de salud pensados para vos.",
+    logo: "/img/logo-hominis.png",
+    tituloSeo: "Hominis | Planes y precios | JR Group",
     descripcionSeo:
-      "Cotizá Avalian con asesoramiento gratis. Compará planes y precios para vos y tu familia.",
+      "Cotizá Hominis con asesoramiento gratis. Compará planes y precios para vos y tu familia.",
   },
   {
     slug: "doctored",
@@ -103,14 +103,14 @@ export const prepagas: Prepaga[] = [
       "Cotizá Doctored con asesoramiento gratis. Compará planes y precios para vos y tu familia.",
   },
   {
-    slug: "hominis",
-    nombre: "Hominis",
+    slug: "omint",
+    nombre: "Omint",
     activa: false,
-    resumen: "Planes de salud pensados para vos.",
-    logo: "/img/logo-hominis.png",
-    tituloSeo: "Hominis | Planes y precios | JR Group",
+    resumen: "Planes de salud con atención de primer nivel.",
+    logo: "/img/logo-omint.png",
+    tituloSeo: "Omint | Planes y precios | JR Group",
     descripcionSeo:
-      "Cotizá Hominis con asesoramiento gratis. Compará planes y precios para vos y tu familia.",
+      "Cotizá Omint con asesoramiento gratis. Compará planes y precios para vos y tu familia.",
   },
 ];
 
