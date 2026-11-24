@@ -52,7 +52,7 @@ export default function HeroSlider() {
         >
           <div className="absolute inset-0 bg-gradient-to-t from-jr-azul-oscuro/90 via-jr-azul-oscuro/60 to-jr-azul-oscuro/30" />
           <div className="relative mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 text-center text-white">
-            <h2 className="text-3xl font-bold drop-shadow-lg md:text-5xl">{s.titulo}</h2>
+            <h1 className="text-3xl font-bold drop-shadow-lg md:text-5xl">{s.titulo}</h1>
             <p className="mt-4 max-w-2xl text-base font-medium drop-shadow-lg md:text-lg">{s.texto}</p>
             <Link
               href={s.href}

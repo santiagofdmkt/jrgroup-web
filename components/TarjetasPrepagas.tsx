@@ -18,7 +18,7 @@ export default function TarjetasPrepagas() {
   }, []);
 
   return (
-    <section id="prepagas" className="relative scroll-mt-24 overflow-hidden py-16 md:py-24">
+    <section id="prepagas" className="relative scroll-mt-24 overflow-hidden py-10 md:py-14">
       {/* Fondo con fotos traslucidas, igual estilo que el hero */}
       <div className="absolute inset-0 bg-jr-fondo">
         {fondos.map((foto, i) => (
@@ -33,38 +33,27 @@ export default function TarjetasPrepagas() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4">
-        <h1 className="titulo-jr-centro text-center text-3xl font-bold md:text-5xl">
-          Compará prepagas y elegí tu cobertura médica
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-gray-600 md:text-lg">
-          Trabajamos con las prepagas líderes del país. Elegí una para ver sus planes o pedinos que las comparemos por vos, sin costo y sin compromiso.
+        <h2 className="animar-zoom text-center text-3xl font-extrabold leading-tight md:text-5xl">
+          Comparamos prepagas, <span className="text-jr-azul">vos elegís</span> tu cobertura médica
+        </h2>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-gray-600 md:text-base">
+          Las prepagas líderes del país, en un solo lugar. Sin costo y sin compromiso.
         </p>
 
-        <div className="mt-8 flex justify-center">
-          <Link
-            href="/#contacto"
-            className="rounded bg-jr-azul px-8 py-3 text-sm font-bold uppercase text-white shadow transition hover:bg-jr-azul-oscuro"
-          >
-            Cotizá gratis
-          </Link>
-        </div>
-
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-5 md:gap-4">
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-5 md:gap-4">
           {prepagas.map((p) => (
             <Link
               key={p.slug}
               href={`/${p.slug}`}
-              className="group relative flex h-28 items-center justify-center overflow-hidden rounded-lg bg-white p-3 shadow-md ring-1 ring-gray-200 transition hover:-translate-y-1 hover:shadow-xl md:h-32"
+              className="group relative flex h-24 items-center justify-center overflow-hidden rounded-lg shadow-md ring-1 ring-gray-200 transition hover:-translate-y-1 hover:shadow-xl md:h-28"
             >
-              <div className="relative h-full w-full">
-                <Image
-                  src={p.logo}
-                  alt={p.nombre}
-                  fill
-                  sizes="(max-width: 768px) 40vw, 200px"
-                  className="object-contain transition duration-300 group-hover:scale-105"
-                />
-              </div>
+              <Image
+                src={p.logo}
+                alt={p.nombre}
+                fill
+                sizes="(max-width: 768px) 40vw, 200px"
+                className="object-contain p-2"
+              />
               {!p.activa && (
                 <span className="absolute right-1 top-1 z-10 rounded bg-jr-azul px-1.5 py-0.5 text-[9px] font-bold uppercase text-white">
                   Próximamente
@@ -75,6 +64,15 @@ export default function TarjetasPrepagas() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/#contacto"
+            className="animar-pulso rounded-full bg-jr-azul px-8 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-jr-azul-oscuro hover:shadow-xl"
+          >
+            Cotizá gratis ›
+          </Link>
         </div>
       </div>
     </section>

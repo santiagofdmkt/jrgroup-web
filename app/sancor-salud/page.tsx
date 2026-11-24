@@ -8,9 +8,9 @@ import FormularioLead from "@/components/FormularioLead";
 export default function Home() {
   return (
     <>
-      <TarjetasPrepagas />
-      <NumerosJR />
       <HeroSlider />
+      <NumerosJR />
+      <TarjetasPrepagas />
       <QuienesSomos />
       <BandaContacto />
 
