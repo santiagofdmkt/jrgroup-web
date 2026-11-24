@@ -29,10 +29,8 @@ export default function TarjetasPrepagas() {
                   Próximamente
                 </span>
               )}
-              <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-center bg-gradient-to-t from-black/70 to-transparent py-2">
-                <span className="text-sm font-bold uppercase tracking-wide text-white drop-shadow">
-                  Ver planes ›
-                </span>
+              <div className="absolute inset-0 z-10 flex translate-y-2 items-end justify-center bg-gradient-to-t from-black/70 via-black/10 to-transparent pb-4 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <span className="text-sm font-medium tracking-wide text-white">Ver planes ›</span>
               </div>
             </Link>
           ))}
