@@ -4,12 +4,23 @@ import { prepagas } from "@/data/prepagas";
 
 export default function TarjetasPrepagas() {
   return (
-    <section id="prepagas" className="scroll-mt-24 py-16 md:py-20">
+    <section id="prepagas" className="scroll-mt-24 bg-jr-fondo py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="titulo-jr-centro text-center text-3xl font-medium md:text-4xl">Nuestras prepagas</h2>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-gray-600">
-          Trabajamos con las prepagas líderes del país. Elegí una para ver sus planes o pedinos que las comparemos por vos.
+        <h1 className="titulo-jr-centro text-center text-3xl font-bold md:text-5xl">
+          Compará prepagas y elegí tu cobertura médica
+        </h1>
+        <p className="mx-auto mt-6 max-w-2xl text-center text-gray-600 md:text-lg">
+          Trabajamos con las prepagas líderes del país. Elegí una para ver sus planes o pedinos que las comparemos por vos, sin costo y sin compromiso.
         </p>
+
+        <div className="mt-8 flex justify-center">
+          <Link
+            href="/#contacto"
+            className="rounded bg-jr-azul px-8 py-3 text-sm font-bold uppercase text-white shadow transition hover:bg-jr-azul-oscuro"
+          >
+            Cotizá gratis
+          </Link>
+        </div>
 
         <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
           {prepagas.map((p) => (
