@@ -25,7 +25,7 @@ export default function TarjetasPrepagas() {
           <div
             key={foto}
             className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-              i === actual ? "opacity-15" : "opacity-0"
+              i === actual ? "opacity-25" : "opacity-0"
             }`}
             style={{ backgroundImage: `url(${foto})` }}
           />
@@ -45,7 +45,7 @@ export default function TarjetasPrepagas() {
             <Link
               key={p.slug}
               href={`/${p.slug}`}
-              className="group relative flex h-24 items-center justify-center overflow-hidden rounded-lg shadow-md ring-1 ring-gray-200 transition hover:-translate-y-1 hover:shadow-xl md:h-28"
+              className="group relative flex h-24 items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl transition hover:-translate-y-1 hover:shadow-2xl md:h-28"
             >
               <Image
                 src={p.logo}
