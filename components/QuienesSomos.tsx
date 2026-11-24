@@ -34,9 +34,9 @@ export default function QuienesSomos() {
             </div>
             <h3 className="mt-5 text-xl font-bold text-jr-texto">¿Por qué elegirnos?</h3>
             <p className="mt-3 leading-relaxed text-gray-600">
-              Porque somos independientes y trabajamos para vos, no para una prepaga. Comparamos opciones de las
-              principales empresas de salud del país y te recomendamos la que realmente te conviene. Nuestro
-              asesoramiento no tiene costo extra.
+              Somos representantes directos de cada prepaga con la que trabajamos. Eso significa que gestionamos tu
+              afiliación directamente con ellas, sin intermediarios, y te acompañamos como tu nexo de confianza
+              durante todo el proceso. Nuestro asesoramiento no tiene costo extra.
             </p>
           </div>
 
