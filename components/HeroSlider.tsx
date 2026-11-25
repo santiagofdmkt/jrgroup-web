@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
@@ -55,7 +55,7 @@ export default function HeroSlider() {
           <h1
             className={`mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight md:text-5xl 2xl:text-6xl ${entrada("delay-100")}`}
           >
-            Comparamos las{" "}
+            Trabajamos con las{" "}
             <span className="bg-gradient-to-r from-sky-300 to-jr-turquesa bg-clip-text text-transparent">
               10 prepagas
             </span>{" "}
