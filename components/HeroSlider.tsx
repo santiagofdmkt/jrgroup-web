@@ -42,7 +42,7 @@ export default function HeroSlider() {
       <div className="absolute inset-0 bg-[#0b1b36]/40 lg:hidden" />
       <div aria-hidden className="pointer-events-none absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-jr-azul/30 blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 md:py-16 lg:grid-cols-[1.15fr_1fr] 2xl:py-28">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-10 md:py-12 lg:grid-cols-[1.15fr_1fr] lg:py-8 2xl:py-20">
         {/* Texto principal */}
         <div>
           <span
@@ -104,7 +104,7 @@ export default function HeroSlider() {
 
         {/* Formulario de cotizacion: lo primero que ve el usuario */}
         <div id="contacto" className={`w-full scroll-mt-28 lg:justify-self-end lg:max-w-[500px] ${entrada("delay-500")}`}>
-          <FormularioLead />
+          <FormularioLead compacto />
         </div>
       </div>
     </section>
