@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+import NextImage from 'next/image'
 import { linkWhatsapp } from '@/data/contacto'
 
 type Plan = { id: string; nombre: string; color: string; img: string; info: string; popular?: boolean }
@@ -9,6 +10,7 @@ type Plan = { id: string; nombre: string; color: string; img: string; info: stri
 const IMGS = {
   hero: '/imagenes/foto-portada-para-celulares-sancor-salud.jpg',
   logo: '/imagenes/logo.png',
+  logoSancor: '/img/logo-sancor-salud.png',
   gen:  '/imagenes/gen.png',
   bannerPyme: '/imagenes/banner-pyme.jpg',
   tipos: {
@@ -82,6 +84,11 @@ export default function SancorSaludPage() {
     document.addEventListener('click', handler)
     return () => document.removeEventListener('click', handler)
   }, [menuAbierto])
+
+  // Al entrar a la pagina, arranca siempre desde arriba de todo
+  useEffect(() => {
+    if (!window.location.hash) window.scrollTo(0, 0)
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -278,13 +285,24 @@ export default function SancorSaludPage() {
           style={{ position: 'relative', maxWidth: 1200, margin: '0 auto', padding: '60px 5%', width: '100%', display: 'flex', alignItems: 'center', gap: 60 }}
           className="hero-grid-sancor"
         >
-          <div style={{ flex: 1, color: 'white', minWidth: 0 }}>
-            <div style={{ display: 'inline-block', background: 'rgba(255,107,0,0.18)', border: '1px solid rgba(255,107,0,0.4)', borderRadius: 8, padding: '6px 16px', fontSize: 12, fontWeight: 700, color: '#FFB74D', marginBottom: 20, letterSpacing: 0.5 }}>
+          <div style={{ flex: 1, color: 'white', minWidth: 0, alignSelf: 'flex-start', paddingTop: 8 }}>
+            <div style={{ display: 'inline-flex', background: '#253c82', borderRadius: 20, padding: '8px 16px', boxShadow: '0 18px 45px rgba(0,0,0,0.35)', border: '1px solid rgba(255,255,255,0.2)', marginBottom: 26 }}>
+              <NextImage
+                src={IMGS.logoSancor}
+                alt="SanCor Salud"
+                width={500}
+                height={281}
+                priority
+                style={{ width: 'clamp(200px, 22vw, 270px)', height: 'auto', display: 'block' }}
+              />
+            </div>
+            <div style={{ display: 'block', width: 'fit-content', background: 'rgba(255,107,0,0.18)', border: '1px solid rgba(255,107,0,0.4)', borderRadius: 8, padding: '6px 16px', fontSize: 12, fontWeight: 700, color: '#FFB74D', marginBottom: 18, letterSpacing: 0.5 }}>
               ASESORES OFICIALES SANCOR SALUD
             </div>
-            <h1 style={{ fontSize: 'clamp(28px, 4.2vw, 52px)', fontWeight: 600, lineHeight: 1.12, marginBottom: 0 }}>
-              Planes SanCor Salud<br />
-              <span style={{ color: '#FFB74D' }}>para vos y tu familia</span>
+            <h1 style={{ fontSize: 'clamp(34px, 5vw, 62px)', fontWeight: 800, lineHeight: 1.08, marginBottom: 0, letterSpacing: '-0.5px' }}>
+              Planes <span style={{ color: '#FFB74D' }}>SanCor Salud</span>
+              <br />
+              para vos y tu familia
             </h1>
           </div>
 
