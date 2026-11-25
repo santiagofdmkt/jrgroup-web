@@ -125,7 +125,7 @@ export default function HeroSlider() {
 
         {/* Tarjeta de beneficios */}
         <div
-          className={`rounded-3xl border border-white/20 bg-[#0b1b36]/70 p-6 shadow-2xl shadow-black/40 ring-1 ring-white/5 backdrop-blur-xl md:p-8 ${entrada("delay-500")}`}
+          className={`rounded-3xl border border-white/20 bg-white/10 p-6 shadow-2xl shadow-black/30 backdrop-blur-xl [text-shadow:0_1px_3px_rgba(0,0,0,0.55)] md:p-8 ${entrada("delay-500")}`}
         >
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-300">Por qué con nosotros</p>
           <h2 className="mt-2 text-2xl font-extrabold text-white md:text-[1.7rem]">Los mismos beneficios, mejor asesorado</h2>
