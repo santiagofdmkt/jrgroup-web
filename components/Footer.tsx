@@ -18,9 +18,9 @@ export default function Footer() {
         <div className="absolute -bottom-40 -right-24 h-96 w-96 rounded-full bg-jr-turquesa/15 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto grid max-w-6xl gap-12 px-4 pb-12 pt-16 sm:grid-cols-2 lg:grid-cols-[1.3fr_1.2fr_1fr_0.8fr]">
+      <div className="relative mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 px-4 pb-10 pt-14 sm:gap-12 lg:grid-cols-[1.3fr_1.2fr_1fr_0.8fr] lg:pb-12 lg:pt-16">
         {/* Marca */}
-        <div>
+        <div className="col-span-2 sm:col-span-1">
           <div className="inline-flex rounded-2xl bg-white px-4 py-3 shadow-lg shadow-black/20">
             <NextImage src="/img/logo-jr-group.png" alt="JR Group Asesores de Prepagas" width={174} height={64} className="h-12 w-auto" />
           </div>
@@ -33,7 +33,7 @@ export default function Footer() {
         </div>
 
         {/* Prepagas */}
-        <div>
+        <div className="col-span-2 sm:col-span-1">
           <h3 className={titulo}>Prepagas</h3>
           <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm">
             {prepagas.map((p) => (
