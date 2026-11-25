@@ -56,11 +56,8 @@ export default function QuienesSomos() {
       <div className="relative mx-auto max-w-6xl px-4">
         {/* Encabezado */}
         <div ref={intro.ref} className={`text-center ${intro.clase}`}>
-          <span className="inline-flex items-center gap-2 rounded-full bg-jr-azul/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-jr-azul">
-            <span className="h-1.5 w-1.5 rounded-full bg-jr-turquesa" />
-            Quiénes somos
-          </span>
-          <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-jr-texto md:text-5xl">
+
+          <h2 className="text-3xl font-extrabold tracking-tight text-jr-texto md:text-5xl">
             Cómo{" "}
             <span className="bg-gradient-to-r from-jr-azul to-jr-turquesa bg-clip-text text-transparent">trabajamos</span>
           </h2>
