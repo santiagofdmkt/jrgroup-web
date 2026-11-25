@@ -65,5 +65,5 @@ select, button { cursor: pointer; }
 
 /* En notebooks (pantallas de 1024 a 1536 px) todo un poco mas compacto */
 @media (min-width: 1024px) and (max-width: 1536px) {
-  html { font-size: 15px; }
+  html { font-size: 14px; }
 }
