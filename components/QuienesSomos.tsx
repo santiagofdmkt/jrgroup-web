@@ -90,13 +90,13 @@ export default function QuienesSomos() {
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-jr-azul to-sky-400 text-2xl text-white shadow-lg shadow-jr-azul/30 transition duration-300 group-hover:scale-110 group-hover:rotate-3">
               ♥
             </div>
-            <h3 className="mt-6 text-2xl font-extrabold text-jr-texto">Nuestra misión</h3>
+            <h3 className="mt-6 text-2xl font-extrabold text-jr-texto">Qué hacemos</h3>
             <p className="mt-4 leading-relaxed text-gray-600">
-              <strong className="text-jr-texto">JR Group</strong> nació con una misión clara: acercar{" "}
-              <strong className="text-jr-azul">coberturas de calidad</strong> con un asesoramiento{" "}
-              <strong className="text-jr-texto">transparente y humano</strong>. Con más de 10 años de experiencia,
-              acompañamos a familias, monotributistas y empresas a elegir la prepaga que mejor se adapta a cada etapa de
-              su vida.
+              Somos <strong className="text-jr-texto">JR Group</strong>, asesores de prepagas con{" "}
+              <strong className="text-jr-texto">más de 10 años</strong> en el rubro. Comparamos planes y precios de las
+              principales prepagas del país y te decimos <strong className="text-jr-azul">cuál te conviene</strong>{" "}
+              según tu edad, tu zona y tu tipo de ingreso. Trabajamos con{" "}
+              <strong className="text-jr-texto">familias, monotributistas y empresas</strong>.
             </p>
           </div>
 
