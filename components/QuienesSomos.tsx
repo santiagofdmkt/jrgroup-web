@@ -45,7 +45,7 @@ export default function QuienesSomos() {
   return (
     <section
       id="como-trabajamos"
-      className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-white via-sky-50/60 to-white py-20 md:py-28"
+      className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-[#f5f5f7] via-[#ececf0] to-[#f5f5f7] pb-20 pt-12 md:pb-24 md:pt-14"
     >
       {/* Luces de color de fondo */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -71,7 +71,7 @@ export default function QuienesSomos() {
           </p>
 
           {/* Datos destacados */}
-          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-3 divide-x divide-gray-200 rounded-2xl bg-white/80 py-5 shadow-lg shadow-jr-azul/5 ring-1 ring-gray-100 backdrop-blur">
+          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-3 divide-x divide-gray-200 rounded-2xl bg-white/80 py-5 shadow-lg shadow-jr-azul/5 ring-1 ring-gray-100 backdrop-blur transition duration-300 hover:scale-[1.03] hover:shadow-xl">
             {datos.map((d) => (
               <div key={d.texto} className="px-2">
                 <p className="bg-gradient-to-r from-jr-azul to-jr-turquesa bg-clip-text text-2xl font-extrabold text-transparent md:text-4xl">
@@ -85,7 +85,7 @@ export default function QuienesSomos() {
 
         {/* Mision y por que elegirnos */}
         <div ref={tarjetas.ref} className={`mt-14 grid gap-6 md:grid-cols-2 ${tarjetas.clase}`}>
-          <div className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl shadow-jr-azul/5 ring-1 ring-gray-100 transition duration-300 hover:-translate-y-1 hover:shadow-2xl md:p-10">
+          <div className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl shadow-jr-azul/5 ring-1 ring-gray-100 transition duration-300 hover:scale-[1.03] hover:shadow-2xl md:p-10">
             <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-jr-azul to-sky-400" />
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-jr-azul to-sky-400 text-2xl text-white shadow-lg shadow-jr-azul/30 transition duration-300 group-hover:scale-110 group-hover:rotate-3">
               ♥
@@ -118,7 +118,7 @@ export default function QuienesSomos() {
         {/* Paso a paso */}
         <div
           ref={proceso.ref}
-          className={`relative mt-8 overflow-hidden rounded-3xl bg-[#0b1b36] p-8 text-white shadow-2xl shadow-jr-azul/20 md:p-12 ${proceso.clase}`}
+          className={`relative mt-8 overflow-hidden rounded-3xl bg-[#0b1b36] p-8 text-white shadow-2xl shadow-jr-azul/20 hover:scale-[1.02] md:p-12 ${proceso.clase}`}
         >
           <div aria-hidden className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-jr-turquesa/25 blur-3xl" />
           <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-jr-azul/30 blur-3xl" />
