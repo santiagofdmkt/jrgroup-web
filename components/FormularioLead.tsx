@@ -19,8 +19,8 @@ const etiqueta = "mb-1.5 block text-xs font-semibold uppercase tracking-wide tex
 
 export default function FormularioLead({ prepagaInicial = "", compacto = false }: Props) {
   // En el hero usamos campos mas bajos y menos espacio entre filas
-  const c = compacto ? campo.replace("py-3", "py-2") : campo;
-  const et = compacto ? etiqueta.replace("mb-1.5", "mb-1").replace("text-xs", "text-[11px]") : etiqueta;
+  const c = compacto ? campo.replace("py-3", "py-2.5") : campo;
+  const et = compacto ? etiqueta.replace("mb-1.5", "mb-1") : etiqueta;
 
   const [tipoIngreso, setTipoIngreso] = useState("");
   const [grupoFamiliar, setGrupoFamiliar] = useState("");
@@ -79,9 +79,9 @@ export default function FormularioLead({ prepagaInicial = "", compacto = false }
   return (
     <form
       onSubmit={enviar}
-      className={`rounded-3xl border border-gray-100 bg-white shadow-xl ${compacto ? "space-y-3 p-5 md:p-6" : "space-y-4 p-6 md:p-8"}`}
+      className={`rounded-3xl border border-gray-100 bg-white shadow-xl ${compacto ? "space-y-3.5 p-6 md:p-7" : "space-y-4 p-6 md:p-8"}`}
     >
-      <h3 className="text-lg font-bold text-jr-texto">Pedí tu cotización</h3>
+      <h3 className={`font-bold text-jr-texto ${compacto ? "text-xl" : "text-lg"}`}>Pedí tu cotización</h3>
 
       {/* En el hero las 2 preguntas van una al lado de la otra */}
       <div className={compacto ? "grid gap-3 sm:grid-cols-2 sm:space-y-0" : "space-y-4"}>
@@ -144,7 +144,7 @@ export default function FormularioLead({ prepagaInicial = "", compacto = false }
                 type="button"
                 onClick={() => alternar(p.nombre)}
                 aria-pressed={activa}
-                className={`cursor-pointer rounded-full border font-semibold transition ${compacto ? "px-3 py-1 text-[11px]" : "px-3.5 py-1.5 text-xs"} ${
+                className={`cursor-pointer rounded-full border font-semibold transition ${compacto ? "px-3.5 py-1.5 text-xs" : "px-3.5 py-1.5 text-xs"} ${
                   activa
                     ? "border-jr-azul bg-jr-azul text-white shadow-md shadow-jr-azul/25"
                     : "border-gray-200 bg-[#f5f5f7] text-gray-600 hover:border-jr-azul hover:text-jr-azul"
@@ -166,7 +166,7 @@ export default function FormularioLead({ prepagaInicial = "", compacto = false }
       <button
         type="submit"
         disabled={estado === "enviando"}
-        className={`w-full cursor-pointer rounded-xl bg-jr-azul text-sm ${compacto ? "py-3" : "py-3.5"} font-bold uppercase tracking-wide text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-jr-azul-oscuro hover:shadow-xl disabled:translate-y-0 disabled:opacity-60`}
+        className={`w-full cursor-pointer rounded-xl bg-jr-azul text-sm py-3.5 font-bold uppercase tracking-wide text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-jr-azul-oscuro hover:shadow-xl disabled:translate-y-0 disabled:opacity-60`}
       >
         {estado === "enviando" ? "Enviando..." : "Quiero que me asesoren"}
       </button>
