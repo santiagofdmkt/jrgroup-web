@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const datos = [
   { prefijo: "+", numero: 10, sufijo: "", texto: "años de experiencia" },
-  { prefijo: "+", numero: 3000, sufijo: "", texto: "familias asesoradas" },
+  { prefijo: "+", numero: 3000, sufijo: "", texto: "familias afiliadas" },
   { prefijo: "", numero: 10, sufijo: "", texto: "prepagas disponibles" },
   { prefijo: "", numero: 100, sufijo: "%", texto: "asesoramiento gratuito" },
 ];
