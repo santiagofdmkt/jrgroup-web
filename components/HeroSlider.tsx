@@ -63,7 +63,7 @@ export default function HeroSlider() {
       <div className="absolute inset-0 bg-[#0b1b36]/40 lg:hidden" />
       <div aria-hidden className="pointer-events-none absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-jr-azul/30 blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 md:py-24 lg:grid-cols-[1.15fr_1fr] lg:py-28">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 md:py-16 lg:grid-cols-[1.15fr_1fr] 2xl:py-28">
         {/* Texto principal */}
         <div>
           <span
@@ -74,7 +74,7 @@ export default function HeroSlider() {
           </span>
 
           <h1
-            className={`mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight md:text-6xl ${entrada("delay-100")}`}
+            className={`mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight md:text-5xl 2xl:text-6xl ${entrada("delay-100")}`}
           >
             Comparamos las{" "}
             <span className="bg-gradient-to-r from-sky-300 to-jr-turquesa bg-clip-text text-transparent">
@@ -130,7 +130,7 @@ export default function HeroSlider() {
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-300">Por qué con nosotros</p>
           <h2 className="mt-2 text-2xl font-extrabold text-white md:text-[1.7rem]">Los mismos beneficios, mejor asesorado</h2>
 
-          <ul className="mt-6 space-y-5">
+          <ul className="mt-5 space-y-4">
             {beneficios.map((b) => (
               <li key={b.titulo} className="flex gap-4">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-jr-azul to-jr-turquesa text-lg font-bold text-white shadow-lg shadow-jr-turquesa/30">
