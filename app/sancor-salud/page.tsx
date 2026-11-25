@@ -285,7 +285,7 @@ export default function SancorSaludPage() {
           style={{ position: 'relative', maxWidth: 1320, margin: '0 auto', padding: '60px 32px', width: '100%', display: 'flex', alignItems: 'center', gap: 48 }}
           className="hero-grid-sancor"
         >
-          <div style={{ flex: 1, color: 'white', minWidth: 0, alignSelf: 'flex-start', paddingTop: 8 }}>
+          <div style={{ flex: 1, color: 'white', minWidth: 0, alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
             <div style={{ display: 'inline-flex', background: '#253c82', borderRadius: 22, padding: '8px 16px', border: '2px solid rgba(255,255,255,0.45)', boxShadow: '0 0 0 6px rgba(255,255,255,0.08), 0 0 45px rgba(120,175,255,0.55), 0 20px 50px rgba(0,0,0,0.4)', marginBottom: 26 }}>
               <NextImage
                 src={IMGS.logoSancor}
