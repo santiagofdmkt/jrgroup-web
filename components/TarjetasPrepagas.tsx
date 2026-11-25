@@ -132,30 +132,20 @@ export default function TarjetasPrepagas() {
                   />
                   {/* Brillo que cruza la tarjeta al pasar el mouse */}
                   <div className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/25 opacity-0 transition-all duration-700 group-hover:left-[120%] group-hover:opacity-100" />
-                  {p.activa && (
-                    <span className="absolute left-2 top-2 rounded-full bg-emerald-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow">
-                      Disponible ahora
-                    </span>
-                  )}
+
                 </div>
 
                 {/* Pie de la credencial */}
                 <div className="flex flex-1 items-center justify-between gap-2 border-t border-gray-100 px-3.5 py-3">
                   <div className="min-w-0">
                     <p className="text-sm font-bold leading-tight text-jr-texto">{p.nombre}</p>
-                    {p.activa ? (
-                      <p className="mt-0.5 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600">
-                        <span className="relative flex h-2 w-2">
-                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-                        </span>
-                        Cotizá hoy
-                      </p>
-                    ) : (
-                      <p className="mt-0.5 text-[11px] font-medium uppercase tracking-wide text-gray-400">
-                        Próximamente
-                      </p>
-                    )}
+                    <p className="mt-0.5 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600">
+                      <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                      </span>
+                      Cotizá hoy
+                    </p>
                   </div>
                   <span
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition duration-300 group-hover:translate-x-0.5 ${
