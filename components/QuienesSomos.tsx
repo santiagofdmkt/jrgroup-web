@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const pasos = [
   { numero: "1", titulo: "Dejás tus datos", texto: "Completás el formulario o nos escribís por WhatsApp. Te lleva un minuto." },
@@ -8,81 +8,136 @@ const pasos = [
   { numero: "3", titulo: "Elegís tu plan", texto: "Te acompañamos en el alta y después, cada vez que lo necesites." },
 ];
 
-export default function QuienesSomos() {
-  const refs = useRef<(HTMLDivElement | null)[]>([]);
+const datos = [
+  { valor: "+10", texto: "años de experiencia" },
+  { valor: "10", texto: "prepagas líderes" },
+  { valor: "$0", texto: "costo de asesoramiento" },
+];
 
+// Hace aparecer un bloque suave cuando entra en pantalla (no necesita CSS extra)
+function useAparecer() {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [visible, setVisible] = useState(false);
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("reveal-visible");
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
-    refs.current.forEach((el) => el && observer.observe(el));
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
+  const clase = `transition-all duration-700 ease-out ${visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`;
+  return { ref, clase };
+}
+
+export default function QuienesSomos() {
+  const intro = useAparecer();
+  const tarjetas = useAparecer();
+  const proceso = useAparecer();
 
   return (
-    <section id="como-trabajamos" className="scroll-mt-24 bg-jr-fondo py-16 md:py-20">
-      <div className="mx-auto max-w-6xl px-4">
-        <h2 className="titulo-jr-centro text-center text-3xl font-medium md:text-4xl">¿Quiénes somos?</h2>
+    <section
+      id="como-trabajamos"
+      className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-white via-sky-50/60 to-white py-20 md:py-28"
+    >
+      {/* Luces de color de fondo */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="absolute -right-32 top-10 h-96 w-96 rounded-full bg-jr-turquesa/15 blur-3xl" />
+        <div className="absolute -left-40 bottom-0 h-[26rem] w-[26rem] rounded-full bg-jr-azul/10 blur-3xl" />
+      </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          <div
-            ref={(el) => { refs.current[0] = el; }}
-            className="reveal rounded-lg bg-white p-8 shadow-md transition hover:-translate-y-1 hover:shadow-xl"
-          >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-jr-azul/10">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-jr-azul">
-                <path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 4 2 .5-1 2-2 4-2 3.5 0 5.5 3.5 3.5 7.5C19 16.65 12 21 12 21z" />
-              </svg>
+      <div className="relative mx-auto max-w-6xl px-4">
+        {/* Encabezado */}
+        <div ref={intro.ref} className={`text-center ${intro.clase}`}>
+          <span className="inline-flex items-center gap-2 rounded-full bg-jr-azul/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-jr-azul">
+            <span className="h-1.5 w-1.5 rounded-full bg-jr-turquesa" />
+            Quiénes somos
+          </span>
+          <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-jr-texto md:text-5xl">
+            Cómo{" "}
+            <span className="bg-gradient-to-r from-jr-azul to-jr-turquesa bg-clip-text text-transparent">trabajamos</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base text-gray-600 md:text-lg">
+            Un equipo de asesores que te habla <strong className="text-jr-texto">claro</strong>, compara{" "}
+            <strong className="text-jr-texto">por vos</strong> y te acompaña{" "}
+            <strong className="text-jr-texto">antes, durante y después</strong> del alta.
+          </p>
+
+          {/* Datos destacados */}
+          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-3 divide-x divide-gray-200 rounded-2xl bg-white/80 py-5 shadow-lg shadow-jr-azul/5 ring-1 ring-gray-100 backdrop-blur">
+            {datos.map((d) => (
+              <div key={d.texto} className="px-2">
+                <p className="bg-gradient-to-r from-jr-azul to-jr-turquesa bg-clip-text text-2xl font-extrabold text-transparent md:text-4xl">
+                  {d.valor}
+                </p>
+                <p className="mt-1 text-xs font-medium text-gray-500 md:text-sm">{d.texto}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mision y por que elegirnos */}
+        <div ref={tarjetas.ref} className={`mt-14 grid gap-6 md:grid-cols-2 ${tarjetas.clase}`}>
+          <div className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl shadow-jr-azul/5 ring-1 ring-gray-100 transition duration-300 hover:-translate-y-1 hover:shadow-2xl md:p-10">
+            <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-jr-azul to-sky-400" />
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-jr-azul to-sky-400 text-2xl text-white shadow-lg shadow-jr-azul/30 transition duration-300 group-hover:scale-110 group-hover:rotate-3">
+              ♥
             </div>
-            <h3 className="mt-5 text-xl font-bold text-jr-texto">Nuestra misión</h3>
-            <p className="mt-3 leading-relaxed text-gray-600">
-              <strong>JR Group</strong> nació con una misión clara: acercar coberturas de calidad con un asesoramiento
-              transparente y humano. Con más de 10 años de experiencia, acompañamos a familias, monotributistas y
-              empresas a elegir la prepaga que mejor se adapta a cada etapa de su vida.
+            <h3 className="mt-6 text-2xl font-extrabold text-jr-texto">Nuestra misión</h3>
+            <p className="mt-4 leading-relaxed text-gray-600">
+              <strong className="text-jr-texto">JR Group</strong> nació con una misión clara: acercar{" "}
+              <strong className="text-jr-azul">coberturas de calidad</strong> con un asesoramiento{" "}
+              <strong className="text-jr-texto">transparente y humano</strong>. Con más de 10 años de experiencia,
+              acompañamos a familias, monotributistas y empresas a elegir la prepaga que mejor se adapta a cada etapa de
+              su vida.
             </p>
           </div>
 
-          <div
-            ref={(el) => { refs.current[1] = el; }}
-            className="reveal rounded-lg bg-white p-8 shadow-md transition hover:-translate-y-1 hover:shadow-xl"
-            style={{ transitionDelay: "0.15s" }}
-          >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-jr-turquesa/10">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-jr-turquesa">
-                <path d="M9 12l2 2 4-4" />
-                <circle cx="12" cy="12" r="9" />
-              </svg>
+          <div className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl shadow-jr-azul/5 ring-1 ring-gray-100 transition duration-300 hover:-translate-y-1 hover:shadow-2xl md:p-10">
+            <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-jr-turquesa to-emerald-400" />
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-jr-turquesa to-emerald-400 text-2xl font-bold text-white shadow-lg shadow-jr-turquesa/30 transition duration-300 group-hover:scale-110 group-hover:-rotate-3">
+              ✓
             </div>
-            <h3 className="mt-5 text-xl font-bold text-jr-texto">¿Por qué elegirnos?</h3>
-            <p className="mt-3 leading-relaxed text-gray-600">
-              Somos representantes directos de cada prepaga con la que trabajamos. Eso significa que gestionamos tu
-              afiliación directamente con ellas, sin intermediarios, y te acompañamos como tu nexo de confianza
-              durante todo el proceso. Nuestro asesoramiento no tiene costo extra.
+            <h3 className="mt-6 text-2xl font-extrabold text-jr-texto">¿Por qué elegirnos?</h3>
+            <p className="mt-4 leading-relaxed text-gray-600">
+              Somos <strong className="text-jr-turquesa">representantes directos</strong> de cada prepaga con la que
+              trabajamos. Gestionamos tu afiliación directamente con ellas,{" "}
+              <strong className="text-jr-texto">sin intermediarios</strong>, y somos tu nexo de confianza durante todo
+              el proceso. Nuestro asesoramiento <strong className="text-jr-texto">no tiene costo extra</strong>.
             </p>
           </div>
+        </div>
 
-          <div
-            ref={(el) => { refs.current[2] = el; }}
-            className="reveal rounded-lg bg-white p-8 shadow-md transition hover:-translate-y-1 hover:shadow-xl md:col-span-2"
-            style={{ transitionDelay: "0.3s" }}
-          >
-            <h3 className="text-xl font-bold text-jr-azul">Cómo trabajamos</h3>
-            <ol className="mt-6 grid gap-6 md:grid-cols-3">
+        {/* Paso a paso */}
+        <div
+          ref={proceso.ref}
+          className={`relative mt-8 overflow-hidden rounded-3xl bg-[#0b1b36] p-8 text-white shadow-2xl shadow-jr-azul/20 md:p-12 ${proceso.clase}`}
+        >
+          <div aria-hidden className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-jr-turquesa/25 blur-3xl" />
+          <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-jr-azul/30 blur-3xl" />
+
+          <div className="relative">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-jr-turquesa">Paso a paso</p>
+            <h3 className="mt-2 text-2xl font-extrabold md:text-3xl">Tu prepaga en 3 pasos simples</h3>
+
+            <ol className="relative mt-10 grid gap-8 md:grid-cols-3 md:gap-6">
+              {/* Linea que une los pasos (solo en compu) */}
+              <div aria-hidden className="absolute left-7 right-[30%] top-7 hidden h-0.5 bg-gradient-to-r from-jr-azul via-jr-turquesa to-emerald-400 opacity-60 md:block" />
               {pasos.map((p) => (
-                <li key={p.numero} className="flex gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-jr-turquesa font-bold text-white">
+                <li key={p.numero} className="group relative flex gap-4 md:flex-col md:gap-5">
+                  <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-jr-azul to-jr-turquesa text-xl font-extrabold text-white shadow-lg shadow-jr-turquesa/30 ring-4 ring-[#0b1b36] transition duration-300 group-hover:scale-110">
                     {p.numero}
                   </span>
                   <div>
-                    <p className="font-bold">{p.titulo}</p>
-                    <p className="text-sm text-gray-600">{p.texto}</p>
+                    <p className="text-lg font-bold">{p.titulo}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-white/70">{p.texto}</p>
                   </div>
                 </li>
               ))}
