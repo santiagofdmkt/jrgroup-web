@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import NextImage from "next/image";
@@ -146,15 +146,15 @@ function FormularioCotizacion({ plan }: { plan?: string }) {
       </div>
       <div>
         <label className={etiqueta}>Nombre y apellido *</label>
-        <CAMPOX type="text" placeholder="Tu nombre completo" value={nombre} onChange={(e) => setNombre(e.target.value)} required className={campo} />
+        <input type="text" placeholder="Tu nombre completo" value={nombre} onChange={(e) => setNombre(e.target.value)} required className={campo} />
       </div>
       <div>
         <label className={etiqueta}>Localidad *</label>
-        <CAMPOX type="text" placeholder="Ej: Buenos Aires, Córdoba..." value={localidad} onChange={(e) => setLocalidad(e.target.value)} required className={campo} />
+        <input type="text" placeholder="Ej: Buenos Aires, Córdoba..." value={localidad} onChange={(e) => setLocalidad(e.target.value)} required className={campo} />
       </div>
       <div>
         <label className={etiqueta}>Teléfono / WhatsApp *</label>
-        <CAMPOX
+        <input
           type="tel"
           inputMode="numeric"
           maxLength={10}
