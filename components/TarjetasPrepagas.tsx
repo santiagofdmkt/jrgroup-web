@@ -49,7 +49,7 @@ export default function TarjetasPrepagas() {
   return (
     <section
       id="prepagas"
-      className="relative scroll-mt-24 overflow-hidden bg-[#0b1b36] py-16 text-white md:py-24"
+      className="relative scroll-mt-24 overflow-hidden bg-[#0b1b36] pb-16 pt-10 text-white md:pb-24 md:pt-12"
     >
       {/* Fondo: luces suaves de color + trama de puntos */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
