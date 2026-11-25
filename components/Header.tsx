@@ -21,10 +21,10 @@ export default function Header() {
           <Image
             src="/img/logo-jr-group.png"
             alt="JR Group Asesores"
-            width={160}
-            height={48}
+            width={174}
+            height={64}
             priority
-            className="h-12 w-auto"
+            className="h-16 w-auto"
           />
         </Link>
 
