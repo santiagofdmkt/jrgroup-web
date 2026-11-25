@@ -59,3 +59,6 @@ body {
 .animar-pulso {
   animation: pulso 2s infinite;
 }
+
+/* Manito en selectores y botones de toda la web */
+select, button { cursor: pointer; }

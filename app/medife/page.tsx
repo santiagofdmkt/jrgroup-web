@@ -8,7 +8,7 @@ import { linkWhatsapp } from "@/data/contacto";
 const PREPAGA = "Medifé";
 const LOGO = "/img/logo-medife.png";
 const FOTO_HERO = "/img/hero-2.jpg";
-const NARANJA = "#e65c04";
+const NARANJA = "#cf5a17";
 
 type Plan = { id: string; nombre: string; bajada: string; puntos: string[]; etiqueta?: string };
 
@@ -85,7 +85,7 @@ const PREGUNTA_INGRESO = ["Trabajo en relación de dependencia", "Soy monotribut
 const PREGUNTA_GRUPO = ["Para mí solo", "Para mí y mi pareja", "Para mi grupo familiar completo"];
 
 const campo =
-  "w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-[#e65c04]";
+  "w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-[#cf5a17]";
 const etiqueta = "mb-1.5 block text-xs font-semibold text-gray-700";
 
 // ====== FORMULARIO (el mismo para todas las prepagas) ======
@@ -140,7 +140,7 @@ function FormularioCotizacion({ plan }: { plan?: string }) {
     <form onSubmit={enviar} className="flex flex-col gap-3">
       <div>
         <label className={etiqueta}>¿Qué tipo de ingreso harías? *</label>
-        <select value={tipoIngreso} onChange={(e) => setTipoIngreso(e.target.value)} required className={campo}>
+        <select value={tipoIngreso} onChange={(e) => setTipoIngreso(e.target.value)} required className={`${campo} cursor-pointer`}>
           <option value="">Seleccionar...</option>
           {PREGUNTA_INGRESO.map((o) => (
             <option key={o}>{o}</option>
@@ -149,7 +149,7 @@ function FormularioCotizacion({ plan }: { plan?: string }) {
       </div>
       <div>
         <label className={etiqueta}>¿Es para vos solo o grupo familiar? *</label>
-        <select value={grupoFamiliar} onChange={(e) => setGrupoFamiliar(e.target.value)} required className={campo}>
+        <select value={grupoFamiliar} onChange={(e) => setGrupoFamiliar(e.target.value)} required className={`${campo} cursor-pointer`}>
           <option value="">Seleccionar...</option>
           {PREGUNTA_GRUPO.map((o) => (
             <option key={o}>{o}</option>
@@ -186,7 +186,7 @@ function FormularioCotizacion({ plan }: { plan?: string }) {
       <button
         type="submit"
         disabled={enviando}
-        className="mt-1 w-full rounded-xl bg-[#e65c04] py-3.5 text-base font-bold text-white shadow-lg shadow-orange-500/30 transition hover:-translate-y-0.5 hover:bg-[#cf5203] disabled:cursor-not-allowed disabled:opacity-60"
+        className="cursor-pointer mt-1 w-full rounded-xl bg-[#cf5a17] py-3.5 text-base font-bold text-white shadow-lg shadow-orange-900/20 transition hover:-translate-y-0.5 hover:bg-[#b84d12] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {enviando ? "Enviando..." : plan ? `Cotizar ${plan}` : "Cotizá tu plan"}
       </button>
@@ -211,19 +211,19 @@ export default function MedifePage() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-[#0b1b36] text-white">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${FOTO_HERO})` }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0b1b36] via-[#0b1b36]/90 to-[#7a2d02]/60" />
-        <div aria-hidden className="pointer-events-none absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-[#e65c04]/25 blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0b1b36] via-[#0b1b36]/90 to-[#5e2808]/50" />
+        <div aria-hidden className="pointer-events-none absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-[#cf5a17]/25 blur-3xl" />
 
         <div className="relative mx-auto flex max-w-[1320px] flex-col items-center gap-10 px-4 py-14 md:px-8 lg:flex-row lg:gap-12 lg:py-20">
           <div className="flex flex-1 flex-col items-center text-center">
-            <div className="overflow-hidden rounded-3xl border-2 border-white/40 shadow-[0_0_0_6px_rgba(255,255,255,0.08),0_0_45px_rgba(230,92,4,0.55),0_20px_50px_rgba(0,0,0,0.4)]">
+            <div className="overflow-hidden rounded-3xl border-2 border-white/40 shadow-[0_0_0_6px_rgba(255,255,255,0.08),0_0_45px_rgba(207,90,23,0.35),0_20px_50px_rgba(0,0,0,0.4)]">
               <NextImage src={LOGO} alt={PREPAGA} width={240} height={240} priority className="h-32 w-32 object-cover md:h-40 md:w-40" />
             </div>
             <span className="mt-7 rounded-lg border border-orange-400/40 bg-orange-500/15 px-4 py-1.5 text-xs font-bold tracking-wide text-orange-300">
               ASESORES OFICIALES {PREPAGA.toUpperCase()}
             </span>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight md:text-[52px]">
-              Planes <span className="text-orange-400">{PREPAGA}</span>
+              Planes <span className="text-[#f3a56b]">{PREPAGA}</span>
               <br />
               para vos y tu familia
             </h1>
@@ -234,7 +234,7 @@ export default function MedifePage() {
           </div>
 
           <div id="cotizar" className="w-full max-w-[400px] scroll-mt-28 rounded-3xl bg-white p-7 text-gray-900 shadow-2xl shadow-black/40">
-            <div className="mb-5 rounded-2xl bg-gradient-to-br from-[#e65c04] to-[#f38302] p-4 text-center text-white shadow-lg shadow-orange-500/30">
+            <div className="mb-5 rounded-2xl bg-gradient-to-br from-[#cf5a17] to-[#dd7a2c] p-4 text-center text-white shadow-lg shadow-orange-900/20">
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-orange-100">Cotización sin cargo</p>
               <p className="mt-1 text-base font-bold leading-snug">Completá tus datos y recibí tu cotización en minutos</p>
             </div>
@@ -244,7 +244,7 @@ export default function MedifePage() {
       </section>
 
       {/* AVISO */}
-      <div className="border-l-4 border-[#e65c04] bg-orange-50 px-4 py-3">
+      <div className="border-l-4 border-[#cf5a17] bg-orange-50 px-4 py-3">
         <p className="mx-auto max-w-6xl text-sm text-[#7a2d02]">
           <strong>Somos asesores oficiales de {PREPAGA}.</strong> Este sitio no reemplaza los canales oficiales de atención
           al afiliado.
@@ -256,7 +256,7 @@ export default function MedifePage() {
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 md:grid-cols-4">
           {DATOS.map((d) => (
             <div key={d.texto} className="text-center">
-              <p className="text-3xl font-extrabold text-orange-400 md:text-4xl">{d.valor}</p>
+              <p className="text-3xl font-extrabold text-[#f3a56b] md:text-4xl">{d.valor}</p>
               <p className="mt-1 text-sm text-white/70">{d.texto}</p>
             </div>
           ))}
@@ -267,9 +267,9 @@ export default function MedifePage() {
       <section id="planes" className="scroll-mt-24 bg-[#f5f5f7] px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e65c04]">Encontrá el que mejor se adapta a vos</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#cf5a17]">Encontrá el que mejor se adapta a vos</p>
             <h2 className="mt-2 text-3xl font-extrabold md:text-5xl">
-              Planes <span className="text-[#e65c04]">{PREPAGA}</span>
+              Planes <span className="text-[#cf5a17]">{PREPAGA}</span>
             </h2>
           </div>
 
@@ -277,11 +277,11 @@ export default function MedifePage() {
             {PLANES.map((p) => (
               <div
                 key={p.id}
-                className="relative flex flex-col overflow-hidden rounded-3xl bg-white p-6 shadow-xl shadow-black/5 ring-1 ring-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:ring-[#e65c04]/30"
+                className="relative flex flex-col overflow-hidden rounded-3xl bg-white p-6 shadow-xl shadow-black/5 ring-1 ring-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:ring-[#cf5a17]/30"
               >
-                <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#e65c04] to-[#f38302]" />
+                <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#cf5a17] to-[#dd7a2c]" />
                 {p.etiqueta && (
-                  <span className="absolute right-4 top-4 rounded-full bg-[#e65c04] px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-white">
+                  <span className="absolute right-4 top-4 rounded-full bg-[#cf5a17] px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-white">
                     {p.etiqueta}
                   </span>
                 )}
@@ -291,7 +291,7 @@ export default function MedifePage() {
                 <ul className="mt-4 flex-1 space-y-2 text-sm">
                   {p.puntos.map((x) => (
                     <li key={x} className="flex gap-2">
-                      <span className="font-bold text-[#e65c04]">✓</span>
+                      <span className="font-bold text-[#cf5a17]">✓</span>
                       {x}
                     </li>
                   ))}
@@ -299,7 +299,7 @@ export default function MedifePage() {
                 <button
                   type="button"
                   onClick={() => setPlanModal(p.nombre)}
-                  className="mt-6 w-full rounded-xl bg-[#0b1b36] py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#e65c04]"
+                  className="cursor-pointer mt-6 w-full rounded-xl bg-[#0b1b36] py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#cf5a17]"
                 >
                   Quiero este plan
                 </button>
@@ -307,14 +307,14 @@ export default function MedifePage() {
             ))}
 
             {/* Tarjeta de ayuda para completar la grilla */}
-            <div className="flex flex-col justify-center rounded-3xl bg-gradient-to-br from-[#e65c04] to-[#f38302] p-6 text-white shadow-xl shadow-orange-500/20">
+            <div className="flex flex-col justify-center rounded-3xl bg-gradient-to-br from-[#cf5a17] to-[#dd7a2c] p-6 text-white shadow-xl shadow-orange-900/20">
               <h3 className="text-2xl font-extrabold">¿No sabés cuál elegir?</h3>
               <p className="mt-2 text-sm text-white/90">
                 Contanos qué necesitás y te recomendamos el plan ideal <strong>según tu edad, zona e ingresos</strong>.
               </p>
               <a
                 href="#cotizar"
-                className="mt-6 rounded-xl bg-white py-3 text-center text-sm font-bold text-[#e65c04] transition hover:-translate-y-0.5"
+                className="mt-6 rounded-xl bg-white py-3 text-center text-sm font-bold text-[#cf5a17] transition hover:-translate-y-0.5"
               >
                 Pedir asesoramiento
               </a>
@@ -327,9 +327,9 @@ export default function MedifePage() {
       <section className="bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e65c04]">Planes para cada perfil</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#cf5a17]">Planes para cada perfil</p>
             <h2 className="mt-2 text-3xl font-extrabold md:text-4xl">
-              ¿Cómo querés <span className="text-[#e65c04]">afiliarte?</span>
+              ¿Cómo querés <span className="text-[#cf5a17]">afiliarte?</span>
             </h2>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -338,12 +338,12 @@ export default function MedifePage() {
                 key={t.titulo}
                 className="flex flex-col items-center rounded-3xl bg-[#f5f5f7] p-7 text-center ring-1 ring-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0b1b36] text-2xl text-orange-400 shadow-lg">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0b1b36] text-2xl text-[#f3a56b] shadow-lg">
                   {t.icono}
                 </span>
                 <h3 className="mt-4 text-lg font-bold">{t.titulo}</h3>
                 <p className="mt-2 text-sm text-gray-600">{t.texto}</p>
-                <a href="#cotizar" className="mt-5 rounded-xl bg-[#e65c04] px-6 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5">
+                <a href="#cotizar" className="mt-5 rounded-xl bg-[#cf5a17] px-6 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5">
                   Cotizar
                 </a>
               </div>
@@ -356,9 +356,9 @@ export default function MedifePage() {
       <section className="bg-[#f5f5f7] px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e65c04]">Lo que incluye tu plan</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#cf5a17]">Lo que incluye tu plan</p>
             <h2 className="mt-2 text-3xl font-extrabold md:text-4xl">
-              Beneficios <span className="text-[#e65c04]">{PREPAGA}</span>
+              Beneficios <span className="text-[#cf5a17]">{PREPAGA}</span>
             </h2>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -367,7 +367,7 @@ export default function MedifePage() {
                 key={p.titulo}
                 className="flex gap-4 rounded-3xl bg-white p-6 shadow-lg shadow-black/5 ring-1 ring-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#e65c04] to-[#f38302] text-xl font-bold text-white">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#cf5a17] to-[#dd7a2c] text-xl font-bold text-white">
                   {p.icono}
                 </span>
                 <div>
@@ -380,7 +380,7 @@ export default function MedifePage() {
           <div className="mt-10 text-center">
             <a
               href="#cotizar"
-              className="inline-block rounded-xl bg-[#e65c04] px-10 py-4 font-bold text-white shadow-lg shadow-orange-500/30 transition hover:-translate-y-0.5"
+              className="inline-block rounded-xl bg-[#cf5a17] px-10 py-4 font-bold text-white shadow-lg shadow-orange-900/20 transition hover:-translate-y-0.5"
             >
               Cotizá tu plan
             </a>
@@ -389,9 +389,9 @@ export default function MedifePage() {
       </section>
 
       {/* WHATSAPP */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-[#0b1b36] to-[#7a2d02] px-4 py-16 text-center text-white">
+      <section className="relative overflow-hidden bg-gradient-to-r from-[#0b1b36] to-[#5e2808] px-4 py-16 text-center text-white">
         <h2 className="text-3xl font-extrabold md:text-4xl">
-          ¿Querés hablar ahora <span className="text-orange-400">con un asesor?</span>
+          ¿Querés hablar ahora <span className="text-[#f3a56b]">con un asesor?</span>
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-white/80">
           Te asesoramos sin compromiso y encontramos el plan {PREPAGA} ideal para vos y tu familia.
@@ -426,12 +426,12 @@ export default function MedifePage() {
               type="button"
               aria-label="Cerrar"
               onClick={() => setPlanModal(null)}
-              className="absolute -top-12 right-0 h-10 w-10 rounded-full bg-white/15 text-lg font-bold text-white hover:bg-white/25"
+              className="cursor-pointer absolute -top-12 right-0 h-10 w-10 rounded-full bg-white/15 text-lg font-bold text-white hover:bg-white/25"
             >
               ✕
             </button>
             <div className="rounded-3xl bg-white p-7 shadow-2xl">
-              <div className="mb-5 rounded-2xl bg-[#e65c04] p-3 text-center font-bold text-white">
+              <div className="mb-5 rounded-2xl bg-[#cf5a17] p-3 text-center font-bold text-white">
                 Cotizá tu plan {PREPAGA} {planModal}
               </div>
               <FormularioCotizacion plan={planModal} />
