@@ -282,11 +282,11 @@ export default function SancorSaludPage() {
         />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(13,36,97,0.94) 0%, rgba(21,101,192,0.80) 55%, rgba(30,136,229,0.55) 100%)' }} />
         <div
-          style={{ position: 'relative', maxWidth: 1200, margin: '0 auto', padding: '60px 5%', width: '100%', display: 'flex', alignItems: 'center', gap: 60 }}
+          style={{ position: 'relative', maxWidth: 1320, margin: '0 auto', padding: '60px 32px', width: '100%', display: 'flex', alignItems: 'center', gap: 48 }}
           className="hero-grid-sancor"
         >
           <div style={{ flex: 1, color: 'white', minWidth: 0, alignSelf: 'flex-start', paddingTop: 8 }}>
-            <div style={{ display: 'inline-flex', background: '#253c82', borderRadius: 20, padding: '8px 16px', boxShadow: '0 18px 45px rgba(0,0,0,0.35)', border: '1px solid rgba(255,255,255,0.2)', marginBottom: 26 }}>
+            <div style={{ display: 'inline-flex', background: '#253c82', borderRadius: 22, padding: '8px 16px', border: '2px solid rgba(255,255,255,0.45)', boxShadow: '0 0 0 6px rgba(255,255,255,0.08), 0 0 45px rgba(120,175,255,0.55), 0 20px 50px rgba(0,0,0,0.4)', marginBottom: 26 }}>
               <NextImage
                 src={IMGS.logoSancor}
                 alt="SanCor Salud"
@@ -299,7 +299,7 @@ export default function SancorSaludPage() {
             <div style={{ display: 'block', width: 'fit-content', background: 'rgba(255,107,0,0.18)', border: '1px solid rgba(255,107,0,0.4)', borderRadius: 8, padding: '6px 16px', fontSize: 12, fontWeight: 700, color: '#FFB74D', marginBottom: 18, letterSpacing: 0.5 }}>
               ASESORES OFICIALES SANCOR SALUD
             </div>
-            <h1 style={{ fontSize: 'clamp(34px, 5vw, 62px)', fontWeight: 800, lineHeight: 1.08, marginBottom: 0, letterSpacing: '-0.5px' }}>
+            <h1 style={{ fontSize: 'clamp(32px, 3.4vw, 52px)', fontWeight: 800, lineHeight: 1.1, marginBottom: 0, letterSpacing: '-0.5px' }}>
               Planes <span style={{ color: '#FFB74D' }}>SanCor Salud</span>
               <br />
               para vos y tu familia
