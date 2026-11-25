@@ -3,32 +3,11 @@
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
 import { linkWhatsapp } from "@/data/contacto";
+import FormularioLead from "@/components/FormularioLead";
 
 // Fotos de fondo que van rotando (en public/img)
 const fotos = ["/img/hero-1.jpg", "/img/hero-2.jpg", "/img/hero-3.jpg"];
 
-const beneficios = [
-  {
-    icono: "★",
-    titulo: "Representantes directos",
-    texto: "Gestionamos tu afiliación con cada prepaga, con los mismos beneficios y descuentos según tu tipo de ingreso.",
-  },
-  {
-    icono: "⇄",
-    titulo: "Derivación de aportes",
-    texto: "Con recibo de sueldo o monotributo.",
-  },
-  {
-    icono: "%",
-    titulo: "Descuento por hijos",
-    texto: "Precios especiales para grupos familiares.",
-  },
-  {
-    icono: "✦",
-    titulo: "Plan Joven",
-    texto: "Grandes beneficios para los más jóvenes.",
-  },
-];
 
 export default function HeroSlider() {
   const [actual, setActual] = useState(0);
@@ -90,7 +69,7 @@ export default function HeroSlider() {
 
           <div className={`mt-9 flex flex-col gap-3 sm:flex-row ${entrada("delay-300")}`}>
             <NextLink
-              href="/#contacto"
+              href="#contacto"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-jr-azul px-8 py-4 text-base font-bold text-white shadow-xl shadow-jr-azul/40 transition hover:-translate-y-0.5 hover:bg-jr-azul-oscuro"
             >
               Quiero mi cotización gratis
@@ -123,26 +102,9 @@ export default function HeroSlider() {
           </div>
         </div>
 
-        {/* Tarjeta de beneficios */}
-        <div
-          className={`rounded-3xl border border-white/20 bg-white/10 p-6 shadow-2xl shadow-black/30 backdrop-blur-xl [text-shadow:0_1px_3px_rgba(0,0,0,0.55)] md:p-8 ${entrada("delay-500")}`}
-        >
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-300">Por qué con nosotros</p>
-          <h2 className="mt-2 text-2xl font-extrabold text-white md:text-[1.7rem]">Los mismos beneficios, mejor asesorado</h2>
-
-          <ul className="mt-5 space-y-4">
-            {beneficios.map((b) => (
-              <li key={b.titulo} className="flex gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-jr-azul to-jr-turquesa text-lg font-bold text-white shadow-lg shadow-jr-turquesa/30">
-                  {b.icono}
-                </span>
-                <div>
-                  <p className="text-lg font-bold text-white">{b.titulo}</p>
-                  <p className="mt-0.5 text-[15px] font-medium leading-relaxed text-white/90">{b.texto}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+        {/* Formulario de cotizacion: lo primero que ve el usuario */}
+        <div id="contacto" className={`w-full scroll-mt-28 lg:justify-self-end lg:max-w-[500px] ${entrada("delay-500")}`}>
+          <FormularioLead />
         </div>
       </div>
     </section>

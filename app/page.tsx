@@ -1,9 +1,9 @@
-import NumerosJR from "@/components/NumerosJR";
+﻿import NumerosJR from "@/components/NumerosJR";
 import HeroSlider from "@/components/HeroSlider";
 import TarjetasPrepagas from "@/components/TarjetasPrepagas";
 import QuienesSomos from "@/components/QuienesSomos";
 import BandaContacto from "@/components/BandaContacto";
-import FormularioLead from "@/components/FormularioLead";
+import PorQueNosotros from "@/components/PorQueNosotros";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       <QuienesSomos />
       <BandaContacto />
 
-      <section id="contacto" className="scroll-mt-24 py-16 md:py-20">
+      <section id="por-que-nosotros" className="scroll-mt-24 py-16 md:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2">
           <div>
             <span className="inline-block rounded-full bg-jr-azul/10 px-4 py-1 text-xs font-bold uppercase tracking-wide text-jr-azul">
@@ -42,7 +42,7 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          <FormularioLead />
+          <PorQueNosotros />
         </div>
       </section>
     </>
