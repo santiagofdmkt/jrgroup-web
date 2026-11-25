@@ -59,7 +59,7 @@ export default function FormularioLead({ prepagaInicial = "" }: Props) {
 
       <div>
         <label className={etiqueta}>Teléfono</label>
-        <input name="telefono" required type="tel" placeholder="Con código de área" className={campo} />
+        <input name="telefono" required type="tel" inputMode="numeric" maxLength={10} placeholder="Con código de área, sin 0 ni 15" onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 10); }} className={campo} />
       </div>
 
       <div className="grid grid-cols-2 gap-4">
