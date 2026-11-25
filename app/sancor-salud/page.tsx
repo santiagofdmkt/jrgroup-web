@@ -400,7 +400,7 @@ export default function SancorSaludPage() {
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <p style={{ color: '#F56400', fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 10 }}>Encontra el que mejor se adapta a vos</p>
             <h2 style={{ fontSize: 'clamp(28px, 3.2vw, 42px)', fontWeight: 600, color: '#0D2461' }}>
-              Nuestros <span style={{ color: '#F56400' }}>Planes</span>
+              Planes <span style={{ color: '#F56400' }}>SanCor Salud</span>
             </h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, alignItems: 'start' }} className="planes-grid-sancor">
