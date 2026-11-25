@@ -11,6 +11,7 @@ type Props = {
 
 // Las mismas preguntas que en las landings de cada prepaga
 const PREGUNTA_INGRESO = ["Trabajo en relación de dependencia", "Soy monotributista", "Soy responsable inscripto", "Soy particular"];
+const MAX_PREPAGAS = 3; // cantidad maxima de prepagas que se pueden marcar
 const PREGUNTA_GRUPO = ["Para mí solo", "Para mí y mi pareja", "Para mi grupo familiar completo"];
 
 const campo =
@@ -31,11 +32,13 @@ export default function FormularioLead({ prepagaInicial = "", compacto = false }
   const [estado, setEstado] = useState<"listo" | "enviando" | "ok">("listo");
   const [error, setError] = useState("");
 
-  // Marca o desmarca una prepaga (se pueden elegir varias)
+  // Marca o desmarca una prepaga (se pueden elegir hasta MAX_PREPAGAS)
   const alternar = (nombrePrepaga: string) =>
-    setElegidas((lista) =>
-      lista.includes(nombrePrepaga) ? lista.filter((n) => n !== nombrePrepaga) : [...lista, nombrePrepaga]
-    );
+    setElegidas((lista) => {
+      if (lista.includes(nombrePrepaga)) return lista.filter((n) => n !== nombrePrepaga);
+      if (lista.length >= MAX_PREPAGAS) return lista;
+      return [...lista, nombrePrepaga];
+    });
 
   async function enviar(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -134,20 +137,24 @@ export default function FormularioLead({ prepagaInicial = "", compacto = false }
 
       {/* Prepagas de interes: se pueden marcar varias */}
       <div>
-        <label className={et}>{compacto ? "¿Qué prepagas te interesan? (opcional)" : "¿Qué prepagas te interesan? (podés elegir varias)"}</label>
+        <label className={et}>{compacto ? "¿Qué prepagas te interesan? (hasta 3)" : "¿Qué prepagas te interesan? (podés elegir hasta 3)"}</label>
         <div className={`flex flex-wrap ${compacto ? "gap-1.5" : "gap-2"}`}>
           {prepagas.map((p) => {
             const activa = elegidas.includes(p.nombre);
+            const bloqueada = !activa && elegidas.length >= MAX_PREPAGAS; // ya hay 3 marcadas
             return (
               <button
                 key={p.slug}
                 type="button"
                 onClick={() => alternar(p.nombre)}
                 aria-pressed={activa}
-                className={`cursor-pointer rounded-full border font-semibold transition ${compacto ? "px-3.5 py-1.5 text-xs" : "px-3.5 py-1.5 text-xs"} ${
+                disabled={bloqueada}
+                className={`rounded-full border font-semibold transition ${compacto ? "px-3.5 py-1.5 text-xs" : "px-3.5 py-1.5 text-xs"} ${
                   activa
-                    ? "border-jr-azul bg-jr-azul text-white shadow-md shadow-jr-azul/25"
-                    : "border-gray-200 bg-[#f5f5f7] text-gray-600 hover:border-jr-azul hover:text-jr-azul"
+                    ? "cursor-pointer border-jr-azul bg-jr-azul text-white shadow-md shadow-jr-azul/25"
+                    : bloqueada
+                    ? "cursor-not-allowed border-gray-200 bg-[#f5f5f7] text-gray-600 opacity-40"
+                    : "cursor-pointer border-gray-200 bg-[#f5f5f7] text-gray-600 hover:border-jr-azul hover:text-jr-azul"
                 }`}
               >
                 {activa ? "✓ " : ""}
