@@ -49,7 +49,7 @@ export default function TarjetasPrepagas() {
   return (
     <section
       id="prepagas"
-      className="relative scroll-mt-24 overflow-hidden bg-[#0b1b36] pb-16 pt-10 text-white md:pb-24 md:pt-12"
+      className="relative scroll-mt-24 overflow-hidden bg-[#0b1b36] pb-12 pt-10 text-white md:pb-14 md:pt-12"
     >
       {/* Fondo: luces suaves de color + trama de puntos */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -165,12 +165,13 @@ export default function TarjetasPrepagas() {
         </div>
 
         {/* Llamado a la accion */}
-        <div className="mt-12 flex flex-col items-center gap-3">
+        <div className="mt-10 flex flex-col items-center gap-3">
           <Link
             href="/#contacto"
-            className="animar-pulso rounded-full bg-jr-azul px-9 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-jr-azul/30 transition hover:-translate-y-0.5 hover:bg-jr-azul-oscuro hover:shadow-xl"
+            className="animar-pulso group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-jr-azul to-teal-600 px-10 py-4 text-base font-extrabold text-white shadow-xl shadow-teal-900/40 ring-1 ring-white/20 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-teal-700/40"
           >
-            Cotizá gratis ›
+            Cotizá gratis
+            <span className="transition group-hover:translate-x-1">→</span>
           </Link>
           <p className="text-sm text-white/60">¿No sabés cuál elegir? Te ayudamos a comparar.</p>
         </div>
