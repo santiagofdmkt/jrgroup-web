@@ -138,30 +138,35 @@ export default function FormularioLead({ prepagaInicial = "", compacto = false }
       {/* Prepagas de interes: se pueden marcar varias */}
       <div>
         <label className={et}>{compacto ? "¿Qué prepagas te interesan? (hasta 3)" : "¿Qué prepagas te interesan? (podés elegir hasta 3)"}</label>
-        <div className={`flex flex-wrap ${compacto ? "gap-1.5" : "gap-2"}`}>
-          {prepagas.map((p) => {
-            const activa = elegidas.includes(p.nombre);
-            const bloqueada = !activa && elegidas.length >= MAX_PREPAGAS; // ya hay 3 marcadas
-            return (
-              <button
-                key={p.slug}
-                type="button"
-                onClick={() => alternar(p.nombre)}
-                aria-pressed={activa}
-                disabled={bloqueada}
-                className={`rounded-full border font-semibold transition ${compacto ? "px-3.5 py-1.5 text-xs" : "px-3.5 py-1.5 text-xs"} ${
-                  activa
-                    ? "cursor-pointer border-jr-azul bg-jr-azul text-white shadow-md shadow-jr-azul/25"
-                    : bloqueada
-                    ? "cursor-not-allowed border-gray-200 bg-[#f5f5f7] text-gray-600 opacity-40"
-                    : "cursor-pointer border-gray-200 bg-[#f5f5f7] text-gray-600 hover:border-jr-azul hover:text-jr-azul"
-                }`}
-              >
-                {activa ? "✓ " : ""}
-                {p.nombre}
-              </button>
-            );
-          })}
+        {/* Botones en 2 filas de 5: cada boton se estira para que las filas queden parejas */}
+        <div className="space-y-1.5">
+          {[prepagas.slice(0, 5), prepagas.slice(5)].map((fila, n) => (
+            <div key={n} className="flex flex-wrap gap-1.5">
+              {fila.map((p) => {
+                const activa = elegidas.includes(p.nombre);
+                const bloqueada = !activa && elegidas.length >= MAX_PREPAGAS; // ya hay 3 marcadas
+                return (
+                  <button
+                    key={p.slug}
+                    type="button"
+                    onClick={() => alternar(p.nombre)}
+                    aria-pressed={activa}
+                    disabled={bloqueada}
+                    className={`flex-auto basis-[30%] whitespace-nowrap rounded-full sm:basis-auto border px-2 py-1.5 text-center text-xs font-semibold transition ${
+                      activa
+                        ? "cursor-pointer border-jr-azul bg-jr-azul text-white shadow-md shadow-jr-azul/25"
+                        : bloqueada
+                        ? "cursor-not-allowed border-gray-200 bg-[#f5f5f7] text-gray-600 opacity-40"
+                        : "cursor-pointer border-gray-200 bg-[#f5f5f7] text-gray-600 hover:border-jr-azul hover:text-jr-azul"
+                    }`}
+                  >
+                    {activa ? "✓ " : ""}
+                    {p.nombre}
+                  </button>
+                );
+              })}
+            </div>
+          ))}
         </div>
         {!compacto && (
           <span className="mt-1.5 block text-[11px] text-gray-400">Si no marcás ninguna, te recomendamos la que más te conviene.</span>
