@@ -77,13 +77,9 @@ export default function TarjetasPrepagas() {
         </div>
 
         <h2 className="animar-zoom mx-auto mt-5 max-w-4xl text-center text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">
-          Comparamos prepagas,{" "}
-          <span className="bg-gradient-to-r from-sky-300 to-jr-turquesa bg-clip-text text-transparent">vos elegís</span>{" "}
-          tu cobertura médica
+          Elegí tu cobertura y{" "}
+          <span className="bg-gradient-to-r from-sky-300 to-jr-turquesa bg-clip-text text-transparent">afiliate online</span>
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-base text-white/70 md:text-lg">
-          <strong className="text-white">Elegí tu cobertura y afiliate online.</strong> Te acompañamos con el proceso de asesoría hasta el alta de cobertura.
-        </p>
 
         {/* Sellos de confianza */}
         <ul className="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-white/80">
