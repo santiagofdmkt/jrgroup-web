@@ -82,7 +82,7 @@ export default function TarjetasPrepagas() {
           tu cobertura médica
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-base text-white/70 md:text-lg">
-          <strong className="text-white">Elegí la prepaga que te interesa</strong> y te enviamos la cotización con el detalle de sus Planes. Sin costo y sin compromiso.
+          <strong className="text-white">Elegí tu cobertura y afiliate online.</strong> Te acompañamos con el proceso de asesoría hasta el alta de cobertura.
         </p>
 
         {/* Sellos de confianza */}
