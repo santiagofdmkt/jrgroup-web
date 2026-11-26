@@ -20,8 +20,11 @@ const etiqueta = "mb-1.5 block text-xs font-semibold uppercase tracking-wide tex
 
 export default function FormularioLead({ prepagaInicial = "", compacto = false }: Props) {
   // En el hero usamos campos mas bajos y menos espacio entre filas
-  const c = compacto ? campo.replace("py-3", "py-2.5") : campo;
-  const et = compacto ? etiqueta.replace("mb-1.5", "mb-1") : etiqueta;
+  // En el hero la tarjeta es de vidrio esmerilado: campos blancos y textos claros
+  const c = compacto
+    ? "w-full rounded-xl border border-white/40 bg-white/95 px-4 py-2.5 text-sm text-jr-texto placeholder:text-gray-400 shadow-sm transition focus:border-white focus:bg-white focus:outline-none focus:ring-4 focus:ring-jr-turquesa/40"
+    : campo;
+  const et = compacto ? "mb-1 block text-xs font-semibold uppercase tracking-wide text-white/75" : etiqueta;
 
   const [tipoIngreso, setTipoIngreso] = useState("");
   const [grupoFamiliar, setGrupoFamiliar] = useState("");
@@ -82,9 +85,26 @@ export default function FormularioLead({ prepagaInicial = "", compacto = false }
   return (
     <form
       onSubmit={enviar}
-      className={`rounded-3xl border border-gray-100 bg-white shadow-xl ${compacto ? "space-y-3.5 p-6 md:p-7" : "space-y-4 p-6 md:p-8"}`}
+      className={`rounded-3xl ${
+        compacto
+          ? "relative space-y-3.5 overflow-hidden border border-white/25 bg-[#0b1b36]/45 p-6 shadow-2xl shadow-black/40 ring-1 ring-white/10 backdrop-blur-xl md:p-7"
+          : "space-y-4 border border-gray-100 bg-white p-6 shadow-xl md:p-8"
+      }`}
     >
-      <h3 className={`font-bold text-jr-texto ${compacto ? "text-xl" : "text-lg"}`}>Pedí tu cotización</h3>
+      {/* Linea de color arriba de la tarjeta de vidrio */}
+      {compacto && <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-jr-azul via-sky-300 to-jr-turquesa" />}
+
+      {compacto ? (
+        <div>
+          <h3 className="text-2xl font-extrabold text-white">
+            Pedí tu{" "}
+            <span className="bg-gradient-to-r from-sky-300 to-jr-turquesa bg-clip-text text-transparent">cotización gratis</span>
+          </h3>
+          <p className="mt-1 text-sm text-white/70">Te respondemos por WhatsApp con planes y valores.</p>
+        </div>
+      ) : (
+        <h3 className="text-lg font-bold text-jr-texto">Pedí tu cotización</h3>
+      )}
 
       {/* En el hero las 2 preguntas van una al lado de la otra */}
       <div className={compacto ? "grid gap-3 sm:grid-cols-2 sm:space-y-0" : "space-y-4"}>
@@ -153,7 +173,13 @@ export default function FormularioLead({ prepagaInicial = "", compacto = false }
                     aria-pressed={activa}
                     disabled={bloqueada}
                     className={`flex-auto basis-[30%] whitespace-nowrap rounded-full sm:basis-auto border px-2 py-1.5 text-center text-xs font-semibold transition ${
-                      activa
+                      compacto
+                        ? activa
+                          ? "cursor-pointer border-white bg-white text-jr-azul shadow-md shadow-black/20"
+                          : bloqueada
+                          ? "cursor-not-allowed border-white/20 bg-white/5 text-white/80 opacity-40"
+                          : "cursor-pointer border-white/30 bg-white/10 text-white hover:-translate-y-0.5 hover:bg-white/20"
+                        : activa
                         ? "cursor-pointer border-jr-azul bg-jr-azul text-white shadow-md shadow-jr-azul/25"
                         : bloqueada
                         ? "cursor-not-allowed border-gray-200 bg-[#f5f5f7] text-gray-600 opacity-40"
@@ -173,12 +199,16 @@ export default function FormularioLead({ prepagaInicial = "", compacto = false }
         )}
       </div>
 
-      {error && <p className="text-center text-xs font-medium text-red-600">{error}</p>}
+      {error && <p className={`text-center text-xs font-medium ${compacto ? "text-red-200" : "text-red-600"}`}>{error}</p>}
 
       <button
         type="submit"
         disabled={estado === "enviando"}
-        className={`w-full cursor-pointer rounded-xl bg-jr-azul text-sm py-3.5 font-bold uppercase tracking-wide text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-jr-azul-oscuro hover:shadow-xl disabled:translate-y-0 disabled:opacity-60`}
+        className={`w-full cursor-pointer rounded-xl py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl disabled:translate-y-0 disabled:opacity-60 ${
+          compacto
+            ? "bg-gradient-to-r from-jr-azul to-teal-600 shadow-teal-900/40 ring-1 ring-white/20"
+            : "bg-jr-azul hover:bg-jr-azul-oscuro"
+        }`}
       >
         {estado === "enviando" ? "Enviando..." : "Quiero que me asesoren"}
       </button>
