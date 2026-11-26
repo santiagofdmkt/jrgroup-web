@@ -58,8 +58,8 @@ export default function QuienesSomos() {
         <div ref={intro.ref} className={`text-center ${intro.clase}`}>
 
           <h2 className="text-3xl font-extrabold tracking-tight text-jr-texto md:text-5xl">
-            Cómo{" "}
-            <span className="bg-gradient-to-r from-jr-azul to-jr-turquesa bg-clip-text text-transparent">trabajamos</span>
+            ¿Cómo{" "}
+            <span className="bg-gradient-to-r from-jr-azul to-jr-turquesa bg-clip-text text-transparent">trabajamos</span>?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-gray-600 md:text-lg">
             Un equipo de asesores que te habla <strong className="text-jr-texto">claro</strong>, compara{" "}
